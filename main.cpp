@@ -16,7 +16,7 @@ int main()
 	int iResult;
 	SOCKET ConnectSocket = INVALID_SOCKET;
 	int sendbuflen = DEFAULT_BUFLEN;
-	char sendbuf[] = "this is a test";
+	const char* sendbuf = "this is a test";
 	int recvbuflen = DEFAULT_BUFLEN;
 	char recvbuf[DEFAULT_BUFLEN];
 
@@ -74,9 +74,11 @@ int main()
 	if (iResult == SOCKET_ERROR) {
 		closesocket(ConnectSocket);
 		ConnectSocket = INVALID_SOCKET;
+		cout << "3.1\n";
 	}
 
-	cout << "3.1\n";
+	cout << "3.2\n";
+	system("pause");
 
 	// Send an initial buffer
 	iResult = send(ConnectSocket, sendbuf, (int)strlen(sendbuf), 0);
